@@ -14,8 +14,8 @@ variable "dynamodb_table" {
 }
 
 variable "AWS_ACCESS_KEY" {
-  default = "AKIA2DNACYU4PAQYCROK"
+
 }
 variable "AWS_SECRET_KEY" {
-  default = "483DtimoByR1HhHVsEA+BOEzYH2fPLhFEvPvlKkt"
+
 }
