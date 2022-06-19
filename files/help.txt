@@ -1,0 +1,17 @@
+Usage: diploma <subcommand> [options]
+
+The available commands for execution are listed below.
+
+Subommands:  
+ login          'aws configure' with links to login to AWS console
+ init           'diploma login' and 'terraform init'
+ plan           'diploma init' and 'terraform plan'
+ apply          'diploma init' and 'terraform apply'
+ destroy        'terraform destroy' with 'diploma login' and 'diploma init'
+ unset-creds    instruction how to unset creds
+ creds          print AWS access keys names
+ check-creds    print AWS access keys values
+
+Options:
+ --force    
+ --only     To run dry terraform command without 'diploma login' and 'diploma init'

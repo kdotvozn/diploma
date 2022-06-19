@@ -1,15 +1,15 @@
 # diploma
 
-# diploma
-rare version 0.1
-
 ## How to use?
 - get the repository
-- run `diploma` to get reference:
-    - place `diploma` file to any place from your `$PATH`
-        - to execute, run `diploma`
-    - or run from repo folder
-        - to execute, run as regular script: `./diploma` 
+- run `./diploma.sh install` to install the cli.
+
+    - `/cli` script now is located at `/usr/local/bin` so you can use it just by running `diploma`
+    - `/files` cli uses to work as expected are copied to `/usr/share/diploma`
+
+    > the specified files can be deleted by `diploma uninstall`
+
+
 
 
 

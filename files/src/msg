@@ -1,0 +1,33 @@
+#!/bin/bash
+
+bin='/usr/local/bin'        # cli location
+share='/usr/share/diploma'  # files location
+
+
+case $1 in
+#exit
+    nonauthorized)
+        echo "EXIT: To $2 diploma, use ./diploma.sh from https://github.com/kdotvozn/diploma"
+        ;;
+        
+#success
+    installed)
+        echo "INSTALL SUCCESS: diploma v`cat $share/version.txt` installed!"
+        echo Now you can use the cli running \'diploma\' command        
+        ;;
+    updated)
+        echo "UDPDATE SUCCESS: updated to v`cat $share/version.txt`!"
+        ;;
+
+#version
+    version)
+        cat /usr/share/diploma/version.txt
+        ;;
+#help
+    help)
+        cat /usr/share/diploma/help.txt
+        ;;
+
+    *)
+        exit 1
+esac

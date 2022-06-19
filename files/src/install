@@ -1,0 +1,23 @@
+#!/bin/bash
+
+bin='/usr/local/bin'        # cli location
+share='/usr/share/diploma'  # files location
+msg='files/src/msg'
+
+case $1 in
+    --force)
+        sudo cp cli/diploma $bin
+        sudo cp -r files $share
+        ;;
+
+    *)
+        echo whereis `whereis diploma`
+        [ $(whereis diploma)='diploma:' &>> err.log ] \
+        && echo "installing..." \
+        && ./diploma.sh install --force \
+        && $msg installed \
+        || echo "INSTALL STOPPED: diploma exists!"
+        ;;
+
+
+esac

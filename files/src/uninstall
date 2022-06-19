@@ -1,0 +1,35 @@
+#!/bin/bash
+
+bin='/usr/local/bin'        # cli location
+share='/usr/share/diploma'  # files location
+
+case $1 in
+    --force)
+        whereis diploma | xargs sudo rm -rf
+        [ $(whereis diploma)='diploma:' &>> err.log ] && echo "UNINSTALL: SUCCESS: diploma uninstalled"\
+        || echo "failed"
+        ;;
+
+    *)
+        echo whereis `whereis diploma`
+        [ $(whereis diploma)='diploma:' &>> err.log ] || false \
+        && echo diploma does not exist && delete=n \
+        || read -p 'Are you sure want to uninstall diploma? 
+This will forcefully remove above-mentioned files! Y/n: ' delete
+        case $delete in
+            ''|y)
+                ./diploma.sh uninstall --force
+                ;;
+            n)
+                echo "UNINSTALL: EXIT: skipped uninstall"
+                ;;
+            *)
+                echo "UNINSTALL: WARNING: invalid input! Options are only 'y' or 'n'!"
+                echo
+                ./diploma.sh uninstall
+                exit 1
+        esac
+        ;;
+
+
+esac
